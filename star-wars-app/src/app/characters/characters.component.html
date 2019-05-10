@@ -1,0 +1,47 @@
+<div class='container-fluid' style="position: relative; top: 20px;">
+  <h1 align='center' style='color:whitesmoke;'>Click on a Character to Get More Information</h1>
+  <div class="row" style='text-align:center;'>
+      <div class="col-sm">
+        <div class='clickCharacter' (click)="clickedLuke();">
+          <strong>Luke SkyWalker</strong><br>
+          <img class='characterImg' src='../../assets/LukeSquare.jpg'>
+        </div>
+        <div id='lukeFilmography' *ngIf='charServ.lukeFilms && charServ.lukeFilms.length >= 5'>
+          <ul *ngFor='let movie of charServ.lukeFilms;' style='text-align:left; list-style-type:none; margin:0px;'>
+            <li><b>{{movie.film}}</b>, {{movie.director}}, {{movie.release | date:'fullDate'}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class='clickCharacter' (click)="clickedVader();">
+          <strong>Darth Vader</strong><br>
+          <img class='characterImg' src='../../assets/VaderSquare.jpg'>
+        </div>
+        <div id='vaderFilmography' *ngIf='charServ.vaderFilms && charServ.vaderFilms.length >= 4'>
+          <ul *ngFor='let movie of charServ.vaderFilms;' style='text-align:left; list-style-type:none; margin:0px;'>
+              <li><b>{{movie.film}}</b>, {{movie.director}}, {{movie.release | date:'fullDate'}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class='clickCharacter' (click)="clickedKenobi();">
+          <strong>Obi-wan Kenobi</strong><br>
+          <img class='characterImg' src='../../assets/KenobiSquare.png'>
+        </div>
+        <div id='kenobiFilmography' *ngIf='charServ.kenobiFilms'>
+            <strong style='font-size:24px; color:red;'>{{charServ.kenobiFilms[0].error}}</strong>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class='clickCharacter' (click)="clickedR2D2();">
+          <strong>R2D2</strong><br>
+          <img class='characterImg' src='../../assets/R2-D2Square.jpg'>
+        </div>
+        <div id='r2d2Filmography' *ngIf='charServ.R2D2Films && charServ.R2D2Films.length >= 7'>
+          <ul *ngFor='let movie of charServ.R2D2Films;' style='text-align:left; list-style-type:none; margin:0px;'>
+              <li><b>{{movie.film}}</b>, {{movie.director}}, {{movie.release | date:'fullDate'}}</li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>
